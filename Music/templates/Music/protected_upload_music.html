@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protected File Upload</title>
+</head>
+<body>
+    <h1>Upload a Protected File</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="id_file">File:</label>
+        <input type="file" name="file" id="id_file" required>
+        <br><br>
+        <label for="id_access_emails">Access Emails:</label>
+        <textarea name="access_emails" id="id_access_emails" rows="3" required></textarea>
+        <small>Enter email addresses separated by commas for access</small>
+        <br><br>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

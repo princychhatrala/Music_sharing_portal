@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Sharing Portal</title>
+</head>
+<body>
+    <h1>Welcome to the Music Sharing Portal</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}!</p>
+        <p><a href="{% url 'Music:upload-music' %}">Upload Music</a></p>
+        <p><a href="{% url 'Music:private-music-list' %}">View Private Music</a></p>
+        <p><a href="{% url 'Music:protected-music-list' %}">View Protected Music</a></p>
+    {% else %}
+        <p><a href="{% url 'users:login' %}">Login</a></p>
+        <p><a href="{% url 'users:register' %}">Register</a></p>
+    {% endif %}
+</body>
+</html>
